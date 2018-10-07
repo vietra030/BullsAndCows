@@ -10,17 +10,17 @@ void FBullCowGame::IncrementTry()
 	_currentTry++;
 }
 
-int FBullCowGame::GetMaxTries()
+int FBullCowGame::GetMaxTries() const
 {
 	return _maxTries;
 }
 
-int FBullCowGame::GetCurrentTry()
+int FBullCowGame::GetCurrentTry() const
 {
 	return _currentTry;
 }
 
-bool FBullCowGame::IsGameOver()
+bool FBullCowGame::IsGameOver() const
 {
 	return false;
 }
@@ -28,6 +28,12 @@ bool FBullCowGame::IsGameOver()
 FBullCowGame::FBullCowGame()
 {
 	_maxTries = 6;
+	_currentTry = 1;
+}
+
+FBullCowGame::FBullCowGame(int x)
+{
+	_maxTries = x;
 	_currentTry = 1;
 }
 

@@ -7,12 +7,19 @@ private:
 	int _maxTries;
 	int _currentTry;
 public:
-	void Reset(int); // TODO make a more richer return value
+	// const functions
+	int GetMaxTries() const;
+	int GetCurrentTry() const;
+	bool IsGameOver() const;
+
+	void Reset(int); // TODO: make a more richer return value
 	void IncrementTry();
-	int GetMaxTries();
-	int GetCurrentTry();
-	bool IsGameOver();
+	
+	// Constructors
 	FBullCowGame();
+	FBullCowGame(int); // Constructor for when there is a variable difficulty in the game.
+	
+	// Destructors
 	~FBullCowGame();
 };
 
