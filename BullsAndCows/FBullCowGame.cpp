@@ -2,8 +2,6 @@
 #include "FBullCowGame.h"
 #include <random>
 
-std::string WORD;
-
 void FBullCowGame::_setSecretWord()
 {
 	/*
@@ -14,20 +12,15 @@ void FBullCowGame::_setSecretWord()
 	std::mt19937 rng;
 	rng.seed(std::random_device()());
 	std::uniform_int_distribution<std::mt19937::result_type> dist(0, _wordDictioary.size() - 1);
-	_secretWord = _wordDictioary[dist(rng)]; // TODO: Fix this. Why is this assignment not working?
+	_secretPos = dist(rng); 
+	// TODO: Assign a FString variable with this data. This works for the time being but needs to be done properly.
 }
 
 // Getter functions
 int32 FBullCowGame::GetMaxTries() const {	return _maxTries; }
 int32 FBullCowGame::GetCurrentTry() const { return _currentTry; }
 
-int32 FBullCowGame::GetWordLength()
-{
-	// TODO: Remove the debug code
-
-	_secretWord = "Bullshit"; // Debug code
-	return _secretWord.length();
-}
+int32 FBullCowGame::GetWordLength() const { return _wordDictioary[_secretPos].length(); }
 
 void FBullCowGame::Reset()
 {
