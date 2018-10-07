@@ -10,9 +10,19 @@ void FBullCowGame::Reset()
 	_currentTry = 1;
 }
 
-void FBullCowGame::IncrementTry()
+// receives a VALID guess, Increments turn, returns count of bull and cow
+BullCowCount FBullCowGame::Count(FString)
 {
+	/*
+	increment the turn number
+	setup a return variable
+	loop through all the letters in guess
+		Compare letters against the hidden word
+	*/
 	_currentTry++;
+	BullCowCount bcc;
+
+	return bcc;
 }
 
 
