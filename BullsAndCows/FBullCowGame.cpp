@@ -1,6 +1,11 @@
 #include "pch.h"
 #include "FBullCowGame.h"
 
+void FBullCowGame::_setSectretWord()
+{
+	// TODO: Select a random word from the _wordDictionary and set it as the _secretWord;
+}
+
 // Getter functions
 int32 FBullCowGame::GetMaxTries() const {	return _maxTries; }
 int32 FBullCowGame::GetCurrentTry() const { return _currentTry; }

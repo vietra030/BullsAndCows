@@ -1,9 +1,11 @@
 #pragma once
 #include <string>
+#include <vector>
 
 // Substitutions made to make code more unreal like
 using FString = std::string;
 using int32 = int;
+using List = std::vector<FString>;
 
 // bull and cow values initialized to 0
 struct BullCowCount
@@ -17,6 +19,10 @@ class FBullCowGame
 private:
 	int32 _maxTries;
 	int32 _currentTry;
+	FString _secretWord;
+	List _wordDictioary = { "brick", "blind", "simple", "sample" , "world"};
+
+	void _setSectretWord();
 public:
 	// Getter functions
 	int32 GetMaxTries() const;
