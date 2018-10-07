@@ -5,14 +5,8 @@
 int FBullCowGame::GetMaxTries() const {	return _maxTries; }
 int FBullCowGame::GetCurrentTry() const { return _currentTry; }
 
-/*
-Reset sets the maxTries to variable x and currentTry to 1.
-
-Reset can be a private method but we will see what to do with this later.
-*/
-void FBullCowGame::Reset(int x)
+void FBullCowGame::Reset()
 {
-	_maxTries = x;
 	_currentTry = 1;
 }
 
@@ -28,7 +22,7 @@ bool FBullCowGame::IsGameOver() const
 	return false;
 }
 
-bool FBullCowGame::IsGuessValid(std::string guess) const
+bool FBullCowGame::IsGuessValid(FString guess) const
 {
 	// TODO: Implement the function and remove the debugging code
 	return true;
@@ -36,12 +30,14 @@ bool FBullCowGame::IsGuessValid(std::string guess) const
 
 FBullCowGame::FBullCowGame()
 {
-	Reset(6);
+	Reset();
+	_maxTries = 6;
 }
 
 FBullCowGame::FBullCowGame(int x)
 {
-	Reset(x);
+	Reset();
+	_maxTries = x;
 }
 
 

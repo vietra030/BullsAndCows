@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 
+using FString = std::string;
+
 class FBullCowGame
 {
 private:
@@ -13,9 +15,9 @@ public:
 
 	// Check functions
 	bool IsGameOver() const;
-	bool IsGuessValid(std::string) const;
+	bool IsGuessValid(FString) const;
 
-	void Reset(int); // TODO: make a more richer return value
+	void Reset(); // TODO: make a more richer return value
 	void IncrementTry();
 	
 	// Constructors
