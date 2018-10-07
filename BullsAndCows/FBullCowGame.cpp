@@ -19,8 +19,7 @@ void FBullCowGame::_setSecretWord()
 // Getter functions
 int32 FBullCowGame::GetMaxTries() const {	return _maxTries; }
 int32 FBullCowGame::GetCurrentTry() const { return _currentTry; }
-
-int32 FBullCowGame::GetWordLength() const { return _wordDictioary[_secretPos].length(); }
+int32 FBullCowGame::GetWordLength() const { return _wordDictioary.at(_secretPos).length(); }
 
 void FBullCowGame::Reset()
 {
@@ -42,10 +41,9 @@ BullCowCount FBullCowGame::Count(FString)
 	return bcc;
 }
 
-
-
 bool FBullCowGame::IsGameOver() const
 {
+	// TODO: Design a check to see if the game is over
 	return false;
 }
 
