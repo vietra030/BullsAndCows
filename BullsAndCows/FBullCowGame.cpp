@@ -1,14 +1,33 @@
 #include "pch.h"
 #include "FBullCowGame.h"
+#include <random>
 
-void FBullCowGame::_setSectretWord()
+std::string WORD;
+
+void FBullCowGame::_setSecretWord()
 {
-	// TODO: Select a random word from the _wordDictionary and set it as the _secretWord;
+	/*
+	C++ Random number generation never ceases to amaze me.
+	who thought mt19937 was a great name for a type? What do the numbers mean?
+	But it's cool. I love using it.
+	*/
+	std::mt19937 rng;
+	rng.seed(std::random_device()());
+	std::uniform_int_distribution<std::mt19937::result_type> dist(0, _wordDictioary.size() - 1);
+	_secretWord = _wordDictioary[dist(rng)]; // TODO: Fix this. Why is this assignment not working?
 }
 
 // Getter functions
 int32 FBullCowGame::GetMaxTries() const {	return _maxTries; }
 int32 FBullCowGame::GetCurrentTry() const { return _currentTry; }
+
+int32 FBullCowGame::GetWordLength()
+{
+	// TODO: Remove the debug code
+
+	_secretWord = "Bullshit"; // Debug code
+	return _secretWord.length();
+}
 
 void FBullCowGame::Reset()
 {

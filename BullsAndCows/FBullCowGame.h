@@ -19,14 +19,15 @@ class FBullCowGame
 private:
 	int32 _maxTries;
 	int32 _currentTry;
-	FString _secretWord;
+	FString _secretWord = "";
 	List _wordDictioary = { "brick", "blind", "simple", "sample" , "world"};
 
-	void _setSectretWord();
+	void _setSecretWord();
 public:
 	// Getter functions
 	int32 GetMaxTries() const;
 	int32 GetCurrentTry() const;
+	int32 GetWordLength();
 
 	// Check functions
 	bool IsGameOver() const;
