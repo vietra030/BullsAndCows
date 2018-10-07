@@ -5,14 +5,19 @@
 void FBullCowGame::Reset(int)
 {}
 
+void FBullCowGame::IncrementTry()
+{
+	_currentTry++;
+}
+
 int FBullCowGame::GetMaxTries()
 {
-	return 0;
+	return _maxTries;
 }
 
 int FBullCowGame::GetCurrentTry()
 {
-	return 0;
+	return _currentTry;
 }
 
 bool FBullCowGame::IsGameOver()
@@ -21,7 +26,10 @@ bool FBullCowGame::IsGameOver()
 }
 
 FBullCowGame::FBullCowGame()
-{}
+{
+	_maxTries = 6;
+	_currentTry = 1;
+}
 
 
 FBullCowGame::~FBullCowGame()
