@@ -2,8 +2,8 @@
 #include "FBullCowGame.h"
 
 // Getter functions
-int FBullCowGame::GetMaxTries() const {	return _maxTries; }
-int FBullCowGame::GetCurrentTry() const { return _currentTry; }
+int32 FBullCowGame::GetMaxTries() const {	return _maxTries; }
+int32 FBullCowGame::GetCurrentTry() const { return _currentTry; }
 
 void FBullCowGame::Reset()
 {
@@ -34,7 +34,7 @@ FBullCowGame::FBullCowGame()
 	_maxTries = 6;
 }
 
-FBullCowGame::FBullCowGame(int x)
+FBullCowGame::FBullCowGame(int32 x)
 {
 	Reset();
 	_maxTries = x;
