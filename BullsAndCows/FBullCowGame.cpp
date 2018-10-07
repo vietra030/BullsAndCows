@@ -30,7 +30,8 @@ bool FBullCowGame::IsGameOver() const
 
 bool FBullCowGame::IsGuessValid(std::string guess) const
 {
-	return false;
+	// TODO: Implement the function and remove the debugging code
+	return true;
 }
 
 FBullCowGame::FBullCowGame()
