@@ -31,11 +31,12 @@ enum class EGuessStatus
 class FBullCowGame
 {
 private:
+	// Variables
 	int32 _maxTries;
 	int32 _currentTry;
 	int32 _secretPos;
-	List _wordDictioary = { "brick", "blind", "simple", "sample" , "world"}; // TODO: Fix problem here
-
+	List _wordDictioary = { "brick", "blind", "simple", "sample" , "world"};
+	// Methods
 	void _setSecretWord();
 public:
 	// Getter functions

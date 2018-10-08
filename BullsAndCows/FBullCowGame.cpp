@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "FBullCowGame.h"
 #include <random>
+#include <chrono>
 
-// TODO: Fix bug here. Always the first word is getting selected. The entire purpose of mt19937 was to get me random values
 void FBullCowGame::_setSecretWord()
 {
 	/*
@@ -11,19 +11,20 @@ void FBullCowGame::_setSecretWord()
 	But it's cool. I love using it.
 	*/
 	std::mt19937 rng;
-	rng.seed(std::random_device()());
+	rng.seed(std::chrono::high_resolution_clock::now().time_since_epoch().count());
 	std::uniform_int_distribution<std::mt19937::result_type> dist(0, _wordDictioary.size() - 1);
-	_secretPos = (int32)dist(rng); 
+	_secretPos = dist(rng); 
 	// TODO: Assign a FString variable with this data. This works for the time being but needs to be done properly.
 }
 
 // Getter functions
 int32 FBullCowGame::GetMaxTries() const { return _maxTries; }
 int32 FBullCowGame::GetCurrentTry() const { return _currentTry; }
-int32 FBullCowGame::GetWordLength() const { return _wordDictioary.at(_secretPos).length(); }
+int32 FBullCowGame::GetWordLength() const { return _wordDictioary[_secretPos].length(); }
 
 void FBullCowGame::Reset()
 {
+	_setSecretWord();
 	_currentTry = 1;
 }
 
