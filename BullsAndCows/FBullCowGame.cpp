@@ -17,7 +17,7 @@ void FBullCowGame::_setSecretWord()
 }
 
 // Getter functions
-int32 FBullCowGame::GetMaxTries() const {	return _maxTries; }
+int32 FBullCowGame::GetMaxTries() const { return _maxTries; }
 int32 FBullCowGame::GetCurrentTry() const { return _currentTry; }
 int32 FBullCowGame::GetWordLength() const { return _wordDictioary.at(_secretPos).length(); }
 
@@ -27,7 +27,7 @@ void FBullCowGame::Reset()
 }
 
 // receives a VALID guess, Increments turn, returns count of bull and cow
-BullCowCount FBullCowGame::Count(FString)
+FBullCowCount FBullCowGame::SubmitGuess(FString)
 {
 	/*
 	increment the turn number
@@ -35,8 +35,12 @@ BullCowCount FBullCowGame::Count(FString)
 	loop through all the letters in guess
 		Compare letters against the hidden word
 	*/
-	_currentTry++;
-	BullCowCount bcc;
+	_currentTry++; // When valid input is made the Current try will be incremented
+	for (int32 i = 0; i < _wordDictioary.at(_secretPos).length(); i++)
+	{
+
+	}
+	FBullCowCount bcc;
 
 	return bcc;
 }

@@ -8,7 +8,7 @@ using int32 = int;
 using List = std::vector<FString>;
 
 // bull and cow values initialized to 0
-struct BullCowCount
+struct FBullCowCount
 {
 	int32 bull = 0;
 	int32 cow = 0;
@@ -34,7 +34,7 @@ public:
 	bool IsGuessValid(FString) const;
 
 	void Reset(); // TODO: make a more richer return value
-	BullCowCount Count(FString); 
+	FBullCowCount SubmitGuess(FString); 
 	
 	// Constructors
 	FBullCowGame();
