@@ -27,7 +27,7 @@ void FBullCowGame::Reset()
 }
 
 // receives a VALID guess, Increments turn, returns count of bull and cow
-FBullCowCount FBullCowGame::SubmitGuess(FString)
+FBullCowCount FBullCowGame::SubmitGuess(FString guess)
 {
 	/*
 	increment the turn number
@@ -36,12 +36,21 @@ FBullCowCount FBullCowGame::SubmitGuess(FString)
 		Compare letters against the hidden word
 	*/
 	_currentTry++; // When valid input is made the Current try will be incremented
-	for (int32 i = 0; i < _wordDictioary.at(_secretPos).length(); i++)
-	{
-
-	}
 	FBullCowCount bcc;
-
+	int32 x = _wordDictioary.at(_secretPos).length();
+	for (int32 i = 0; i < x; i++)
+	{
+		for (int32 j = 0; j < x; j++)
+		{
+			if (guess[i] == _wordDictioary.at(_secretPos)[j])
+			{
+				if (i == j) // If they are in the same place
+					bcc.bull++;
+				else // If they are not in the same place
+					bcc.cow++;
+			}
+		}
+	}
 	return bcc;
 }
 
