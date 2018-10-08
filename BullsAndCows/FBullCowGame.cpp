@@ -13,7 +13,7 @@ void FBullCowGame::_setSecretWord()
 	std::mt19937 rng;
 	rng.seed(std::random_device()());
 	std::uniform_int_distribution<std::mt19937::result_type> dist(0, _wordDictioary.size() - 1);
-	_secretPos = dist(rng); 
+	_secretPos = (int32)dist(rng); 
 	// TODO: Assign a FString variable with this data. This works for the time being but needs to be done properly.
 }
 
@@ -61,10 +61,26 @@ bool FBullCowGame::IsGameOver() const
 	return false;
 }
 
-EWordStatus FBullCowGame::IsGuessValid(FString guess) const
+EGuessStatus FBullCowGame::IsGuessValid(FString guess) const
 {
-	// TODO: Implement the function and remove the debugging code
-	return EWordStatus::OK;
+	// if the guess isn't an isogram
+	if (false)
+	{
+		return EGuessStatus::Not_Isogram;
+	}
+	else if (false) // if the guess is not all lowercase
+	{
+		// TODO : Convert to all lowercase instead of throwing tantrums
+		return EGuessStatus::Not_lowercase;
+	}
+	else if (guess.length() != GetWordLength()) // if the guess is of wrong length
+	{
+		return EGuessStatus::Wrong_Length;
+	}
+	else
+	{
+		return EGuessStatus::OK;
+	}
 }
 
 // COnstructor and destructor section

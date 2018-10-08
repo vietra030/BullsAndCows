@@ -20,12 +20,12 @@ C++ 11 standard
 enum class should be used instead of just simple enum to mitigate the type redefination error with other enums.
 */
 // Check the status of the word
-enum class EWordStatus
+enum class EGuessStatus
 {
 	OK,
 	Not_Isogram,
-	Input_too_short,
-	Input_too_long
+	Wrong_Length,
+	Not_lowercase
 };
 
 class FBullCowGame
@@ -45,7 +45,7 @@ public:
 
 	// Check functions
 	bool IsGameOver() const;
-	EWordStatus IsGuessValid(FString) const;
+	EGuessStatus IsGuessValid(FString) const;
 
 	void Reset(); // TODO: make a more richer return value
 	FBullCowCount SubmitGuess(FString); 
