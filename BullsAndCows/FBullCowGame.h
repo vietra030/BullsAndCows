@@ -14,13 +14,27 @@ struct FBullCowCount
 	int32 cow = 0;
 };
 
+/*
+This is a strongly typed enum.
+C++ 11 standard
+enum class should be used instead of just simple enum to mitigate the type redefination error with other enums.
+*/
+// Check the status of the word
+enum class EWordStatus
+{
+	OK,
+	Not_Isogram,
+	Input_too_short,
+	Input_too_long
+};
+
 class FBullCowGame
 {
 private:
 	int32 _maxTries;
 	int32 _currentTry;
 	int32 _secretPos;
-	List _wordDictioary = { "brick", "blind", "simple", "sample" , "world"};
+	List _wordDictioary = { "brick", "blind", "simple", "sample" , "world"}; // TODO: Fix problem here
 
 	void _setSecretWord();
 public:
@@ -31,7 +45,7 @@ public:
 
 	// Check functions
 	bool IsGameOver() const;
-	bool IsGuessValid(FString) const;
+	EWordStatus IsGuessValid(FString) const;
 
 	void Reset(); // TODO: make a more richer return value
 	FBullCowCount SubmitGuess(FString); 

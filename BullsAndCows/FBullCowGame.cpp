@@ -2,6 +2,7 @@
 #include "FBullCowGame.h"
 #include <random>
 
+// TODO: Fix bug here. Always the first word is getting selected. The entire purpose of mt19937 was to get me random values
 void FBullCowGame::_setSecretWord()
 {
 	/*
@@ -38,13 +39,13 @@ FBullCowCount FBullCowGame::SubmitGuess(FString guess)
 	_currentTry++; // When valid input is made the Current try will be incremented
 	FBullCowCount bcc;
 	int32 x = _wordDictioary.at(_secretPos).length();
-	for (int32 i = 0; i < x; i++)
+	for (int32 GCount = 0; GCount < x; GCount++) // GCount is the guess count
 	{
-		for (int32 j = 0; j < x; j++)
+		for (int32 HWCount = 0; HWCount < x; HWCount++) // HWCount is the hidden word count
 		{
-			if (guess[i] == _wordDictioary.at(_secretPos)[j])
+			if (guess[GCount] == _wordDictioary.at(_secretPos)[HWCount])
 			{
-				if (i == j) // If they are in the same place
+				if (GCount == HWCount) // If they are in the same place
 					bcc.bull++;
 				else // If they are not in the same place
 					bcc.cow++;
@@ -60,12 +61,13 @@ bool FBullCowGame::IsGameOver() const
 	return false;
 }
 
-bool FBullCowGame::IsGuessValid(FString guess) const
+EWordStatus FBullCowGame::IsGuessValid(FString guess) const
 {
 	// TODO: Implement the function and remove the debugging code
-	return true;
+	return EWordStatus::OK;
 }
 
+// COnstructor and destructor section
 FBullCowGame::FBullCowGame()
 {
 	Reset();
