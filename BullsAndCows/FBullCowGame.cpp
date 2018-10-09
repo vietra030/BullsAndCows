@@ -26,6 +26,7 @@ bool FBullCowGame::IsGameWon() const { return _bGameWon; }
 
 void FBullCowGame::Reset()
 {
+	_bGameWon = false;
 	_setSecretWord();
 	_currentTry = 1;
 }
