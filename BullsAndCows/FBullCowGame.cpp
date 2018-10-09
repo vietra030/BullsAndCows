@@ -18,9 +18,11 @@ void FBullCowGame::_setSecretWord()
 }
 
 // Getter functions
-int32 FBullCowGame::GetMaxTries() const { return _maxTries; }
+int32 FBullCowGame::GetMaxTries() const	{ return _maxTries; }
 int32 FBullCowGame::GetCurrentTry() const { return _currentTry; }
-int32 FBullCowGame::GetWordLength() const { return _wordDictioary[_secretPos].length(); }
+int32 FBullCowGame::GetWordLength() const {	return _wordDictioary[_secretPos].length();	}
+// Boolean functions
+bool FBullCowGame::IsGameWon() const { return _bGameWon; }
 
 void FBullCowGame::Reset()
 {
@@ -53,13 +55,11 @@ FBullCowCount FBullCowGame::SubmitGuess(FString guess)
 			}
 		}
 	}
+	if (bcc.bull == GetWordLength())
+	{
+		_bGameWon = true;
+	}
 	return bcc;
-}
-
-bool FBullCowGame::IsGameWon() const
-{
-	// TODO: Design a check to see if the game is over
-	return false;
 }
 
 EGuessStatus FBullCowGame::IsGuessValid(FString guess) const
@@ -71,10 +71,9 @@ EGuessStatus FBullCowGame::IsGuessValid(FString guess) const
 	}
 	else if (false) // if the guess is not all lowercase
 	{
-		// TODO : Convert to all lowercase instead of throwing tantrums
 		return EGuessStatus::Not_lowercase;
 	}
-	else if (guess.length() != GetWordLength()) // if the guess is of wrong length
+	else if (guess.length() != GetWordLength())
 	{
 		return EGuessStatus::Wrong_Length;
 	}

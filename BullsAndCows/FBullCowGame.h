@@ -37,6 +37,7 @@ private:
 	int32 _currentTry;
 	int32 _secretPos;
 	List _wordDictioary = { "brick", "blind", "simple", "sample" , "world"};
+	bool _bGameWon = false;
 	// Methods
 	void _setSecretWord();
 public:
