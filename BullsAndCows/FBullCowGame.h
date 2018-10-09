@@ -22,10 +22,11 @@ enum class should be used instead of just simple enum to mitigate the type redef
 // Check the status of the word
 enum class EGuessStatus
 {
-	OK,
-	Not_Isogram,
-	Wrong_Length,
-	Not_lowercase
+	Invalid, // It's not necessary, but can be used in future
+	OK, // The correct status
+	Not_Isogram, // Error. User needs to re-enter the guess
+	Wrong_Length, // Error. User needs to re-enter the guess
+	Not_lowercase // Convert the inserted string to lowercase and then use it.
 };
 
 class FBullCowGame
@@ -45,7 +46,7 @@ public:
 	int32 GetWordLength() const;
 
 	// Check functions
-	bool IsGameOver() const;
+	bool IsGameWon() const;
 	EGuessStatus IsGuessValid(FString) const;
 
 	void Reset(); // TODO: make a more richer return value

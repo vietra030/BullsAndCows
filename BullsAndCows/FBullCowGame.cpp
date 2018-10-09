@@ -56,7 +56,7 @@ FBullCowCount FBullCowGame::SubmitGuess(FString guess)
 	return bcc;
 }
 
-bool FBullCowGame::IsGameOver() const
+bool FBullCowGame::IsGameWon() const
 {
 	// TODO: Design a check to see if the game is over
 	return false;
