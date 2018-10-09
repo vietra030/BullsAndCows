@@ -66,11 +66,11 @@ FBullCowCount FBullCowGame::SubmitGuess(FString guess)
 EGuessStatus FBullCowGame::IsGuessValid(FString guess) const
 {
 	// if the guess isn't an isogram
-	if (false)
+	if (false) // TODO: Define function to check whether isogram or not
 	{
 		return EGuessStatus::Not_Isogram;
 	}
-	else if (false) // if the guess is not all lowercase
+	else if (false) // if the guess is not all lowercase TODO: Check whether everything is lowercase or not. But maybe I can get rid of it and force everything to be lower case anyway? Let's see.
 	{
 		return EGuessStatus::Not_lowercase;
 	}
