@@ -5,7 +5,6 @@
 // Substitutions made to make code more unreal like
 using FString = std::string;
 using int32 = int;
-using List = std::vector<FString>;
 
 // bull and cow values initialized to 0
 struct FBullCowCount
@@ -36,7 +35,7 @@ private:
 	int32 _maxTries;
 	int32 _currentTry;
 	int32 _secretPos;
-	List _wordDictioary = { "brick", "blind", "simple", "sample" , "world"};
+	std::vector<FString> _wordDictioary = { "brick", "blind", "simple", "sample" , "world"};
 	bool _bGameWon = false;
 	// Methods
 	void _setSecretWord();
