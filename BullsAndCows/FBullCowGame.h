@@ -1,3 +1,11 @@
+/*
+Author: Matruprasad Chand
+Date: 06/10/2018
+Info:
+	* This is a console based word guessing game
+	* The User will be provided with a few clues and has to guess the word correctly within the given number of tries.
+	* For each letter in the right place, the user gets a bull and for each correct character placed in the wrong place the user gets a cow.
+*/
 #pragma once
 #include <string>
 #include <vector>
@@ -34,10 +42,11 @@ private:
 	int32 _maxTries;
 	int32 _currentTry;
 	int32 _secretPos;
-	std::vector<FString> _wordDictioary = { "brick", "blind", "simple", "sample" , "world"};
+	std::vector<FString> _wordDictioary { "brick", "blind", "simple", "sample" , "world"};
 	bool _bGameWon = false;
 	// Methods
 	void _setSecretWord();
+	void _setMaxTries();
 	bool _isIsogram(FString) const;
 public:
 	// Getter functions

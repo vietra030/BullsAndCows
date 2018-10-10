@@ -22,3 +22,10 @@
 * Provide time limits for guesses along with number of tries
 * Adding new isograms from the users' wrong inputs
 * A hint system
+
+## Screenshots:
+[Start of the game](https://i.imgur.com/LLdXyg3.png)
+[Error: Entered word is not an isogram](https://i.imgur.com/ZPkEMUc.png)
+[Error: Entered word is not of required length](https://i.imgur.com/aVWewgQ.png)
+[When the entered word is an isogram](https://i.imgur.com/Wtupv5C.png)
+[When you guess the correct word](https://i.imgur.com/5arvyhC.png)

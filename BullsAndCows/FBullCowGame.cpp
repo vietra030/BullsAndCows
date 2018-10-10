@@ -1,3 +1,12 @@
+/*
+Author: Matruprasad Chand
+Date: 06/10/2018
+Info:
+	* This is a console based word guessing game
+	* The User will be provided with a few clues and has to guess the word correctly within the given number of tries.
+	* For each letter in the right place, the user gets a bull and for each correct character placed in the wrong place the user gets a cow.
+*/
+#pragma once
 #include "pch.h"
 #include "FBullCowGame.h"
 #include <random>
@@ -16,8 +25,11 @@ void FBullCowGame::_setSecretWord()
 	rng.seed(std::chrono::high_resolution_clock::now().time_since_epoch().count());
 	std::uniform_int_distribution<std::mt19937::result_type> dist(0, _wordDictioary.size() - 1);
 	_secretPos = dist(rng); 
+	_setMaxTries();
 	// TODO: Assign a FString variable with this data. This works for the time being but needs to be done properly.
 }
+
+void FBullCowGame::_setMaxTries() {	_maxTries = _wordDictioary[_secretPos].length() - 1; } // Sets the maximum tries depending on the number of letters in the word
 
 // TODO: Define the logic to check if there are repeating letters present
 bool FBullCowGame::_isIsogram(FString guess) const
@@ -53,10 +65,10 @@ int32 FBullCowGame::GetWordLength() const {	return _wordDictioary[_secretPos].le
 // Boolean functions
 bool FBullCowGame::IsGameWon() const { return _bGameWon; }
 
+// Error checking code
 EGuessStatus FBullCowGame::IsGuessValid(FString guess) const
 {
-	// if the guess isn't an isogram
-	if (!_isIsogram(guess)) // TODO: Define function to check whether isogram or not
+	if (!_isIsogram(guess))
 	{
 		return EGuessStatus::Not_Isogram;
 	}
@@ -77,15 +89,8 @@ void FBullCowGame::Reset()
 	_currentTry = 1;
 }
 
-// receives a VALID guess, Increments turn, returns count of bull and cow
 FBullCowCount FBullCowGame::SubmitGuess(FString guess)
 {
-	/*
-	increment the turn number
-	setup a return variable
-	loop through all the letters in guess
-		Compare letters against the hidden word
-	*/
 	_currentTry++; // When valid input is made the Current try will be incremented
 	FBullCowCount bcc;
 	auto x = _wordDictioary.at(_secretPos).length();
