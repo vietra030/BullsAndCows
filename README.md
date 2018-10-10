@@ -24,8 +24,22 @@
 * A hint system
 
 ## Screenshots:
-[Start of the game](https://i.imgur.com/LLdXyg3.png)
-[Error: Entered word is not an isogram](https://i.imgur.com/ZPkEMUc.png)
-[Error: Entered word is not of required length](https://i.imgur.com/aVWewgQ.png)
-[When the entered word is an isogram](https://i.imgur.com/Wtupv5C.png)
-[When you guess the correct word](https://i.imgur.com/5arvyhC.png)
+1. Start of the game
+
+![Start of the game](https://i.imgur.com/LLdXyg3.png)
+
+2. Error: Entered word is not an isogram
+
+![Error: Entered word is not an isogram](https://i.imgur.com/ZPkEMUc.png)
+
+3. Error: Entered word is not of required length
+
+![Error: Entered word is not of required length](https://i.imgur.com/aVWewgQ.png)
+
+4. When the entered word is an isogram
+
+![When the entered word is an isogram](https://i.imgur.com/Wtupv5C.png)
+
+5. When you guess the correct word
+
+![When you guess the correct word](https://i.imgur.com/5arvyhC.png)
