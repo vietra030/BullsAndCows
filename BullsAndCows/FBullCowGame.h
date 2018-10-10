@@ -39,6 +39,7 @@ private:
 	bool _bGameWon = false;
 	// Methods
 	void _setSecretWord();
+	bool _isIsogram(FString) const;
 public:
 	// Getter functions
 	int32 GetMaxTries() const;

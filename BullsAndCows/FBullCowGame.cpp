@@ -2,6 +2,8 @@
 #include "FBullCowGame.h"
 #include <random>
 #include <chrono>
+#include <map>
+#define TMap std::map // Unreal syntax for std::map of C++
 
 void FBullCowGame::_setSecretWord()
 {
@@ -15,6 +17,34 @@ void FBullCowGame::_setSecretWord()
 	std::uniform_int_distribution<std::mt19937::result_type> dist(0, _wordDictioary.size() - 1);
 	_secretPos = dist(rng); 
 	// TODO: Assign a FString variable with this data. This works for the time being but needs to be done properly.
+}
+
+// TODO: Define the logic to check if there are repeating letters present
+bool FBullCowGame::_isIsogram(FString guess) const
+{
+	if (guess.length() < 2) // Not possible to repeat a character if there is only one
+	{
+		return true;
+	}
+	TMap<char, bool> letterSeen;
+	/*
+		I had no idea the range based for loop is present in C++. Have been extensively using it in Java and C#
+
+		Also I had no idea about auto. Embaressing to admit but this is the first time using it in my 4 years of C++ experience. Always used var in C# but had no idea about C++ implementation.
+	*/
+	for (auto letter : guess)
+	{
+		letter = tolower(letter);
+		if (letterSeen[letter])
+		{
+			return false;
+		}
+		else
+		{
+			letterSeen[letter] = true;
+		}
+	}
+	return true;
 }
 
 // Getter functions
@@ -42,10 +72,10 @@ FBullCowCount FBullCowGame::SubmitGuess(FString guess)
 	*/
 	_currentTry++; // When valid input is made the Current try will be incremented
 	FBullCowCount bcc;
-	int32 x = _wordDictioary.at(_secretPos).length();
-	for (int32 GCount = 0; GCount < x; GCount++) // GCount is the guess count
+	auto x = _wordDictioary.at(_secretPos).length();
+	for (auto GCount = 0; GCount < x; GCount++) // GCount is the guess count
 	{
-		for (int32 HWCount = 0; HWCount < x; HWCount++) // HWCount is the hidden word count
+		for (auto HWCount = 0; HWCount < x; HWCount++) // HWCount is the hidden word count
 		{
 			if (guess[GCount] == _wordDictioary.at(_secretPos)[HWCount])
 			{
@@ -66,7 +96,7 @@ FBullCowCount FBullCowGame::SubmitGuess(FString guess)
 EGuessStatus FBullCowGame::IsGuessValid(FString guess) const
 {
 	// if the guess isn't an isogram
-	if (false) // TODO: Define function to check whether isogram or not
+	if (!_isIsogram(guess)) // TODO: Define function to check whether isogram or not
 	{
 		return EGuessStatus::Not_Isogram;
 	}
