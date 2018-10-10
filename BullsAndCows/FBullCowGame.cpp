@@ -34,7 +34,6 @@ bool FBullCowGame::_isIsogram(FString guess) const
 	*/
 	for (auto letter : guess)
 	{
-		letter = tolower(letter);
 		if (letterSeen[letter])
 		{
 			return false;
@@ -53,6 +52,23 @@ int32 FBullCowGame::GetCurrentTry() const { return _currentTry; }
 int32 FBullCowGame::GetWordLength() const {	return _wordDictioary[_secretPos].length();	}
 // Boolean functions
 bool FBullCowGame::IsGameWon() const { return _bGameWon; }
+
+EGuessStatus FBullCowGame::IsGuessValid(FString guess) const
+{
+	// if the guess isn't an isogram
+	if (!_isIsogram(guess)) // TODO: Define function to check whether isogram or not
+	{
+		return EGuessStatus::Not_Isogram;
+	}
+	else if (guess.length() != GetWordLength())
+	{
+		return EGuessStatus::Wrong_Length;
+	}
+	else
+	{
+		return EGuessStatus::OK;
+	}
+}
 
 void FBullCowGame::Reset()
 {
@@ -91,27 +107,6 @@ FBullCowCount FBullCowGame::SubmitGuess(FString guess)
 		_bGameWon = true;
 	}
 	return bcc;
-}
-
-EGuessStatus FBullCowGame::IsGuessValid(FString guess) const
-{
-	// if the guess isn't an isogram
-	if (!_isIsogram(guess)) // TODO: Define function to check whether isogram or not
-	{
-		return EGuessStatus::Not_Isogram;
-	}
-	else if (false) // if the guess is not all lowercase TODO: Check whether everything is lowercase or not. But maybe I can get rid of it and force everything to be lower case anyway? Let's see.
-	{
-		return EGuessStatus::Not_lowercase;
-	}
-	else if (guess.length() != GetWordLength())
-	{
-		return EGuessStatus::Wrong_Length;
-	}
-	else
-	{
-		return EGuessStatus::OK;
-	}
 }
 
 // COnstructor and destructor section

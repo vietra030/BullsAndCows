@@ -24,8 +24,7 @@ enum class EGuessStatus
 	Invalid, // It's not necessary, but can be used in future
 	OK, // The correct status
 	Not_Isogram, // Error. User needs to re-enter the guess
-	Wrong_Length, // Error. User needs to re-enter the guess
-	Not_lowercase // Convert the inserted string to lowercase and then use it.
+	Wrong_Length // Error. User needs to re-enter the guess
 };
 
 class FBullCowGame
