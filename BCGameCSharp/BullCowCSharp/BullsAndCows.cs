@@ -31,7 +31,7 @@ namespace BullCowCSharp
         //This shows just how simple things are in C#. Random number generation and assignemnt can be done in a single line while in C++ what mt19937 and what else.
         private void SetSecretWord() { secretWord = wordCol.ElementAt(new Random().Next(0, wordCol.Count)); }
 
-        private void Reset()
+        public void Reset()
         {
             IsGameWon = false;
             SetSecretWord();
@@ -60,7 +60,7 @@ namespace BullCowCSharp
         }
 
         // Public methods
-        public int GetWordLength() => 0; // TODO : Flesh it out more
+        public int GetWordLength() => secretWord.Length; // TODO : Flesh it out more
 
         // Instead of creating a struct I can use a Tuple<> in C#.
         public Tuple<int, int> SubmitGuess(string guess)
