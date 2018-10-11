@@ -26,7 +26,6 @@ void FBullCowGame::_setSecretWord()
 	std::uniform_int_distribution<std::mt19937::result_type> dist(0, _wordDictioary.size() - 1);
 	_secretPos = dist(rng); 
 	_setMaxTries();
-	// TODO: Assign a FString variable with this data. This works for the time being but needs to be done properly.
 }
 
 void FBullCowGame::_setMaxTries() {	_maxTries = _wordDictioary[_secretPos].length() - 1; } // Sets the maximum tries depending on the number of letters in the word
@@ -93,7 +92,7 @@ FBullCowCount FBullCowGame::SubmitGuess(FString guess)
 {
 	_currentTry++; // When valid input is made the Current try will be incremented
 	FBullCowCount bcc;
-	auto x = _wordDictioary.at(_secretPos).length();
+	auto x = GetWordLength();
 	for (auto GCount = 0; GCount < x; GCount++) // GCount is the guess count
 	{
 		for (auto HWCount = 0; HWCount < x; HWCount++) // HWCount is the hidden word count
