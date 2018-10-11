@@ -1,4 +1,12 @@
-﻿using System;
+﻿/**
+Author: Matruprasad Chand
+Date: 11/10/2018
+Info:
+	* This is a console based word guessing game
+	* The User will be provided with a few clues and has to guess the word correctly within the given number of tries.
+	* For each letter in the right place, the user gets a bull and for each correct character placed in the wrong place the user gets a cow.
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,7 +55,8 @@ namespace BullCowCSharp
             Dictionary<char, bool> letterSeen = new Dictionary<char, bool>();
             foreach (var letter in guess)
             {
-                if (letterSeen[letter])
+                bool x;
+                if (letterSeen.TryGetValue(letter, out x)) // Tries to get the value of the given index. If accessed normally like an array, it will throw exception if the key is not present.
                 {
                     return false;
                 }
@@ -60,7 +69,7 @@ namespace BullCowCSharp
         }
 
         // Public methods
-        public int GetWordLength() => secretWord.Length; // TODO : Flesh it out more
+        public int GetWordLength() => secretWord.Length; // Lambda expressions in C# are far simpler to use than in C++. But that might be due to practice and familiarity. 
 
         // Instead of creating a struct I can use a Tuple<> in C#.
         public Tuple<int, int> SubmitGuess(string guess)

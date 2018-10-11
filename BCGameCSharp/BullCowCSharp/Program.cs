@@ -1,4 +1,9 @@
-﻿using System;
+﻿/**
+Author: Matruprasad Chand
+Date: 11/10/2018
+This is the recreation of the C++ Bull Cow game.	
+*/
+using System;
 using static System.Console;
 using System.Collections.Generic;
 using System.Linq;
