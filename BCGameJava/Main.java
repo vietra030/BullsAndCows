@@ -28,11 +28,14 @@ public class Main {
 		
 		if(obj.checkIsogram()==true) {
 		
-		if(obj.word.length()<=ob.target.length()) {
+		if(obj.word.length()==ob.target.length()) {
+		
 		for(int i=0;i<obj.word.length();i++) {
 			for(int j=0;j<obj.word.length();j++) {
+				int asci_word=obj.word.charAt(i);
+				int asci_target=ob.target.charAt(j);
 				
-				if(obj.word.charAt(i)==ob.target.charAt(j))
+				if(asci_word==asci_target ||asci_target==asci_word+32)
 				{
 					if(i==j)
 						bulls++;
@@ -87,16 +90,17 @@ public class Main {
 		return true;
 		else { 
 			System.out.print("Okay then!BaBye");
+			
 			return false;}
 		
 				
 	}
 	public static void printIntro() {
 		System.out.println("Welcome to Bulls and Cows");
-		System.out.println("             }    {                 ____\"");
+		System.out.println("             }    {               _//___\\");
 		System.out.println("             (o  o)               (o  o) ");
-		System.out.println("    /--------\\  /                 \\  /---------\\");
-		System.out.println("   / |        |O                     o|         | \\ ");
+		System.out.println("    /--------\\  /                  \\  /--------\\");
+		System.out.println("   / |        |O                     o|         |\\ ");
 		System.out.println("  *  |-,------|                       |-------,,|  * ");
 		System.out.println("     ^        ^                       ^         ^  ");
 		System.out.println("Can you think of an isogram I'm thinking of?");
